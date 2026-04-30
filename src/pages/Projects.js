@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar';
 import {
   style_page_bg,
   style_section,
@@ -12,13 +12,13 @@ import {
   style_proj_title,
   style_proj_desc,
   colors,
-} from './styles';
+} from '../components/styles';
 
 const langColors = {
-  Python: { accent: 'rgba(75,139,190,0.53)', label: '#2a5a8a' },
-  'C++':  { accent: 'rgba(0,52,100,0.53)',   label: '#003464' },
-  MATLAB: { accent: 'rgba(141,14,37,0.53)',  label: '#8D0E25' },
-  JavaScript: { accent: 'rgba(201,169,0,0.53)', label: '#7a6600' },
+  Python:     { accent: 'rgba(75,139,190,0.53)',  label: '#2a5a8a' },
+  'C++':      { accent: 'rgba(0,52,100,0.53)',    label: '#003464' },
+  MATLAB:     { accent: 'rgba(141,14,37,0.53)',   label: '#8D0E25' },
+  JavaScript: { accent: 'rgba(201,169,0,0.53)',   label: '#7a6600' },
 };
 
 const projectData = [
@@ -42,7 +42,6 @@ const filters = ['All', 'Python', 'C++', 'MATLAB', 'JavaScript'];
 
 function Projects() {
   const [active, setActive] = useState('All');
-
   const filtered = active === 'All' ? projectData : projectData.filter(p => p.lang === active);
 
   return (
@@ -51,27 +50,18 @@ function Projects() {
       <div style={style_section}>
         <div style={style_section_eyebrow}>Work</div>
         <div style={style_section_title}>PROJECTS</div>
-
-        {/* Filter bar */}
         <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
           {filters.map((f) => (
-            <button
-              key={f}
-              style={active === f ? style_filter_btn_active : style_filter_btn}
-              onClick={() => setActive(f)}
-            >
+            <button key={f} style={active === f ? style_filter_btn_active : style_filter_btn} onClick={() => setActive(f)}>
               {f === 'All' ? `All (${projectData.length})` : f}
             </button>
           ))}
         </div>
-
-        {/* Grid */}
         <div style={style_proj_grid}>
           {filtered.map((p, i) => {
             const lc = langColors[p.lang];
             return (
               <div key={i} style={{ ...style_proj_card, position: 'relative' }}>
-                {/* top accent bar */}
                 <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: lc.accent, borderRadius: '12px 12px 0 0' }} />
                 <div style={{ fontFamily: "'DM Mono', monospace", fontSize: '13px', color: lc.label, marginBottom: '8px', letterSpacing: '1px' }}>
                   {p.lang.toUpperCase()}
@@ -82,7 +72,6 @@ function Projects() {
             );
           })}
         </div>
-
         <div style={{ height: '80px' }} />
       </div>
     </div>

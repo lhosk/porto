@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar';
 import {
   style_page_bg,
   style_section,
@@ -16,7 +16,7 @@ import {
   style_cert_item,
   colors,
   fonts,
-} from './styles';
+} from '../components/styles';
 
 const education = [
   { years: 'Aug 2021 to Dec 2023', role: 'B.S. in Physics', place: 'UNC Charlotte' },
@@ -73,7 +73,6 @@ function Career() {
         <div style={style_section_eyebrow}>Background</div>
         <div style={style_section_title}>CAREER</div>
 
-        {/* Education */}
         <div style={{ marginBottom: '28px' }}>
           <div style={style_career_label}>Education</div>
           {education.map((e, i) => (
@@ -87,7 +86,6 @@ function Career() {
           ))}
         </div>
 
-        {/* Experience */}
         <div style={{ marginBottom: '28px' }}>
           <div style={style_career_label}>Experience</div>
           {experience.map((e, i) => (
@@ -99,8 +97,7 @@ function Career() {
                 <ul style={{ listStyle: 'none', padding: 0 }}>
                   {e.bullets.map((b, j) => (
                     <li key={j} style={{ display: 'flex', gap: '6px', fontFamily: fonts.mono, fontSize: '14px', color: colors.muted, fontWeight: '400', lineHeight: '1.6', padding: '1px 0' }}>
-                      <span style={{ color: colors.accent, flexShrink: 0 }}>-</span>
-                      {b}
+                      <span style={{ color: colors.accent, flexShrink: 0 }}>-</span>{b}
                     </li>
                   ))}
                 </ul>
@@ -109,7 +106,6 @@ function Career() {
           ))}
         </div>
 
-        {/* Skills */}
         <div style={{ marginBottom: '28px' }}>
           <div style={style_career_label}>Skills</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
@@ -117,16 +113,13 @@ function Career() {
               <div key={i} style={style_skill_group}>
                 <div style={style_skill_group_title}>{s.title}</div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px' }}>
-                  {s.chips.map((c) => (
-                    <span key={c} style={style_chip}>{c}</span>
-                  ))}
+                  {s.chips.map((c) => <span key={c} style={style_chip}>{c}</span>)}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Certificates */}
         <div style={{ marginBottom: '28px' }}>
           <div style={style_career_label}>Certificates</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>

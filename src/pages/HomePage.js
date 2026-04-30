@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar';
 import {
   style_page_bg,
   style_home,
@@ -10,8 +10,7 @@ import {
   style_home_section_line,
   style_home_tag,
   style_contact_btn,
-  colors,
-} from './styles';
+} from '../components/styles';
 
 const languages = ['Python', 'C++', 'JavaScript', 'MATLAB', 'SQL', 'Bash', 'LaTeX'];
 
@@ -24,19 +23,15 @@ function HomePage() {
     <div style={style_page_bg}>
       <NavBar />
       <div style={style_home}>
-        {/* background glow */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 60% 50% at 80% 20%, rgba(255,79,0,0.08) 0%, transparent 60%)',
         }} />
-
         <div style={style_home_eyebrow}>2026 Portfolio</div>
         <div style={style_home_name}>LUCAS<br />HOSKIN</div>
         <div style={style_home_subtitle}>
           Applied physics and CS grad student at UNC Charlotte. I spend most of my time on scientific computing, machine learning, data science, and simulation.
         </div>
-
-        {/* Languages */}
         <div style={style_home_section_label}>Languages</div>
         <div style={style_home_section_line} />
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '36px' }}>
@@ -44,8 +39,6 @@ function HomePage() {
             <span key={lang} style={style_home_tag}>{lang}</span>
           ))}
         </div>
-
-        {/* Contact */}
         <div style={style_home_section_label}>Contact Me</div>
         <div style={style_home_section_line} />
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
