@@ -29,7 +29,7 @@ import Quaternion from './pages/projects/gl/quaternion';
 
 function App() {
   return (
-    <Router basename="/porto">
+    <Router basename="/portfolio">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<Projects />} />
