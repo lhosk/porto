@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Projects from './pages/Projects';
 import Career from './pages/Career';
@@ -29,7 +29,7 @@ import Quaternion from './pages/projects/gl/quaternion';
 
 function App() {
   return (
-    <Router basename="/portfolio">
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<Projects />} />
